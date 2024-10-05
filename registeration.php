@@ -20,6 +20,7 @@ include_once './conn.php';
         <input type="file" name="userImage" accept="image/*" id="">
         <button type="submit" name="register">Register</button>
     </form>
+    <a href="./login.php">do you have already an account?</a>
 </body>
 
 </html>

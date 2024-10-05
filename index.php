@@ -1,6 +1,13 @@
 <?php
 include_once './conn.php';
+include_once './auth.php';
+
+if(isset($_GET['logout'])){
+    session_destroy();
+    header('location:./registeration.php');
+}
 $userId = $_SESSION['user_id'];
+
 $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `users` WHERE `user_id`='$userId' limit 1"));
 ?>
 
@@ -18,6 +25,7 @@ $user = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `users` WHERE `use
     <h2>Name:<?php echo $user['username']; ?></h2>
     <h4>Email:<?php echo $user['user_email']; ?></h4>
     <h2>Joined since:<?php echo $user['created_at']; ?></h2>
+    <a href="?logout">Logout</a>
 </body>
 
 </html>
