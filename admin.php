@@ -41,9 +41,7 @@ if(isset($_GET['userId'])&&isset($_GET['status'])){
     <h2>Welcome <?php echo $admin['username']  ?></h2>
     <?php
     $selectUser = "SELECT * FROM `users`WHERE `category`='client'";
-    // echo date('Y-m-d',time());
     $today= date('Y-m-d',time());
-    // echo $selectUser . "AND `created_at`='$today'";
     echo "<h2>All USERS:" . mysqli_num_rows(mysqli_query($conn, $selectUser)) . "</h2>";
     echo "<h2>All ACTIVE USERS:" . mysqli_num_rows(mysqli_query($conn, $selectUser."AND `is_active`=true")) . "</h2>";
     echo "<h2>All In-ACTIVE USERS:" . mysqli_num_rows(mysqli_query($conn, $selectUser."AND `is_active`=false")) . "</h2>";
